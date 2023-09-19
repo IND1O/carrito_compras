@@ -1,24 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import CajaTotal from "./components/CajaTotal";
+import ItemCarrito from "./components/ItemCarrito";
+import ListaProductos from "./components/ListaProductos";
+import { BaseProvider } from "./context/BaseProvider";
 
 function App() {
+  //console.log("Puerto ==>", process.env.REACT_APP_API);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BaseProvider>
+      <div>
+        <h4>Productos:</h4>
+        <article className="box grid-responsive">
+          <ListaProductos />
+        </article>
+        <h4>Carrito:</h4>
+        <article className="box grid-responsive">
+          <ItemCarrito />
+        </article>
+        <h4>Caja:</h4>
+        <CajaTotal />
+      </div>
+    </BaseProvider>
   );
 }
 
